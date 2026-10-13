@@ -1,6 +1,8 @@
 <?php
 
 namespace Database\Factories;
+use App\Models\Category;
+use App\Models\Contact;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
