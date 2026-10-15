@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/',[ContactController::class,'index']);
+Route::post('/contacts/confirm',[ContactController::class,'confirm']);
+Route::post('/contacts',[ContactController::class,'store']);
+Route::get('/thanks',[ContactController::class,'thanks'])->name('contact.thanks');
 
+
+
+//更新予定
 Route::middleware('auth')->group(function () {
     Route::get('/admin', fn() => '管理者画面（準備中）')->name('admin.index');
 });
