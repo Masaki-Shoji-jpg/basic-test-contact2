@@ -16,7 +16,7 @@ class IndexContactRequest extends FormRequest
         return [
             'keyword' => ['nullable', 'string', 'max:255'],
             'email' => ['nullable', 'string', 'max:255'],
-            'gender' => ['nullable', 'in:1,2,3'],
+            'gender' => ['nullable', 'in:0,1,2,3'],
             'category_id' => ['nullable', 'exists:categories,id'],
             'created_at' => ['nullable', 'date'],
         ];
