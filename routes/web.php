@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +24,7 @@ Route::get('/thanks',[ContactController::class,'thanks'])->name('contact.thanks'
 
 //更新予定
 Route::middleware('auth')->group(function () {
-    Route::get('/admin', fn() => '管理者画面（準備中）')->name('admin.index');
+    Route::get('/admin',[AdminController::class,'index'])->name('admin.index');
+    Route::get('/admin/contacts/{contact}', [AdminController::class, 'show']);
+    Route::delete('/admin/contacts/{contact}', [AdminController::class, 'destroy']);
 });
