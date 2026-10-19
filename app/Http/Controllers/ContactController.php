@@ -5,7 +5,7 @@ use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Contact;
 use Illuminate\Http\Request;
-use App\Http\Requests\ContactRequest;
+use App\Http\Requests\StoreContactRequest;
 
 class ContactController extends Controller
 {
@@ -22,7 +22,7 @@ class ContactController extends Controller
 
 
 
-    public function confirm(ContactRequest $request)
+    public function confirm(StoreContactRequest $request)
     {
         $validated = $request->validated();
         $category = Category::findOrFail($validated['category_id']);
@@ -38,7 +38,7 @@ class ContactController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ContactRequest $request)
+    public function store(StoreContactRequest $request)
     {
         $contact = Contact::create(
             $request->validated()
